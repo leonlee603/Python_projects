@@ -2,6 +2,7 @@ import random
 from words import word_list
 import os
 os.system("clear")
+#! python3
 
 def main():
     """A funtion that run the whole programme."""
