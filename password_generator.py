@@ -7,7 +7,7 @@ lowercase letters, as well as numbers and symbols.
 The password should be a minimum of 8 characters long which contain at
 least two of each type of character.
 """
-
+#! python3
 from random import choice, shuffle, randint
 import string
 import os
