@@ -3,7 +3,7 @@ This is a rock-paper-scissors game which allow player vs the computer.
 The computer’s answer will be randomly generated, 
 while the program will ask the user for their input. 
 """
-
+#! python3
 from random import randint
 import os
 os.system('clear')
