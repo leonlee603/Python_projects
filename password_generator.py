@@ -7,7 +7,7 @@ lowercase letters, as well as numbers and symbols.
 The password should be a minimum of 8 characters long which contain at
 least two of each type of character.
 """
-#! python3
+
 from random import choice, shuffle, randint
 import string
 import os
@@ -23,7 +23,9 @@ def main():
     shuffle(pw)
     #Show the generated password to user.
     print("Your password is: " + "".join(pw))
-    #Check if they want to generate another password again.
+    #Check if user want to save the password to "pw.txt".
+    save_pw(pw)
+    #Check if user want to generate another password again.
     try_again()
 
 def gen_pw(length):
@@ -113,6 +115,25 @@ def try_again():
             return main()
         elif again.lower() == "n":
             print("See you next time!")
+            break
+        else:
+            print("[Invaild input] Please enter y/n.")
+            continue
+
+def save_pw(pw):
+    from datetime import datetime
+    while True:
+        save = input("\nDo you want to save the password? (y/n): ")
+        if save.lower() == "y":
+            with open("pw.txt", "a") as f:
+                t = datetime.today()
+                formatted_t = t.strftime("%Y-%m-%d %H:%M")
+                content = "\nDate and time of the password generated: " + formatted_t
+                content += "\nPassword: " + "".join(pw) + "\n"
+                print("The password is saved at pw.txt!")
+                f.write(content)    
+                break
+        elif save.lower() == "n":
             break
         else:
             print("[Invaild input] Please enter y/n.")
